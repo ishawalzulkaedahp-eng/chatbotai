@@ -1,7 +1,177 @@
 [
   {
-    "id": "contoh",
-    "questions": ["apa itu unp?"],
-    "answer": "UNP adalah Universitas Negeri Padang."
+    "id": "tentang_unp",
+    "questions": [
+      "apa itu unp",
+      "unp itu apa",
+      "universitas negeri padang itu apa",
+      "jelaskan unp"
+    ],
+    "answer": "Universitas Negeri Padang (UNP) adalah perguruan tinggi negeri yang berada di Sumatera Barat. Untuk informasi resmi mengenai kampus, fakultas, dan layanan akademik, silakan merujuk situs resmi UNP."
+  },
+  {
+    "id": "tentang_si",
+    "questions": [
+      "apa itu sistem informasi",
+      "prodi sistem informasi itu apa",
+      "jelaskan program studi sistem informasi",
+      "sistem informasi belajar apa"
+    ],
+    "answer": "Program Studi Sistem Informasi mempelajari pemanfaatan teknologi informasi untuk mendukung kebutuhan dan proses organisasi, termasuk analisis kebutuhan, proses bisnis, pengelolaan data, dan pengembangan sistem. Rincian kurikulum mengikuti ketentuan program studi."
+  },
+  {
+    "id": "belajar_si",
+    "questions": [
+      "apa yang dipelajari di sistem informasi",
+      "materi kuliah sistem informasi",
+      "mahasiswa sistem informasi belajar apa saja"
+    ],
+    "answer": "Materi Sistem Informasi umumnya mencakup dasar pemrograman, basis data, analisis dan perancangan sistem, proses bisnis, manajemen proyek TI, serta interaksi manusia dan komputer. Mata kuliah yang berlaku dapat dilihat pada kurikulum resmi program studi."
+  },
+  {
+    "id": "beda_si_ti",
+    "questions": [
+      "apa perbedaan sistem informasi dan teknik informatika",
+      "beda si dan ti",
+      "sistem informasi sama dengan teknik informatika"
+    ],
+    "answer": "Sistem Informasi lebih menekankan keselarasan teknologi dengan kebutuhan organisasi dan proses bisnis. Teknik Informatika umumnya lebih mendalami aspek komputasi dan rekayasa perangkat lunak. Keduanya tetap mempelajari teknologi dan pemrograman."
+  },
+  {
+    "id": "prospek_kerja",
+    "questions": [
+      "lulusan sistem informasi bisa kerja apa",
+      "prospek kerja sistem informasi",
+      "karier lulusan si"
+    ],
+    "answer": "Lulusan Sistem Informasi dapat berkarier antara lain sebagai analis sistem, analis bisnis, pengelola basis data, konsultan TI, pengembang aplikasi, manajer proyek TI, atau staf tata kelola TI. Pilihan karier bergantung pada kompetensi dan pengalaman masing-masing."
+  },
+  {
+    "id": "kurikulum",
+    "questions": [
+      "di mana melihat kurikulum",
+      "kurikulum sistem informasi",
+      "daftar mata kuliah sistem informasi"
+    ],
+    "answer": "Kurikulum dan daftar mata kuliah yang berlaku sebaiknya diperiksa melalui dokumen akademik atau kanal resmi program studi. Kurikulum dapat berubah mengikuti kebijakan akademik."
+  },
+  {
+    "id": "pendaftaran",
+    "questions": [
+      "bagaimana cara masuk unp",
+      "cara mendaftar unp",
+      "jalur masuk unp",
+      "pendaftaran mahasiswa baru"
+    ],
+    "answer": "Informasi penerimaan mahasiswa baru UNP, persyaratan, jadwal, dan jalur seleksi dapat berubah setiap tahun. Periksa pengumuman terbaru pada situs resmi penerimaan mahasiswa baru UNP agar memperoleh informasi yang akurat."
+  },
+  {
+    "id": "jadwal_kuliah",
+    "questions": [
+      "kapan jadwal kuliah",
+      "di mana melihat jadwal kuliah",
+      "jadwal perkuliahan"
+    ],
+    "answer": "Jadwal kuliah biasanya diumumkan melalui sistem informasi akademik atau kanal resmi program studi/fakultas. Periksa pengumuman semester berjalan karena jadwal dapat berubah."
+  },
+  {
+    "id": "krs",
+    "questions": [
+      "apa itu krs",
+      "bagaimana mengisi krs",
+      "cara mengisi kartu rencana studi"
+    ],
+    "answer": "KRS (Kartu Rencana Studi) adalah daftar mata kuliah yang direncanakan untuk diambil mahasiswa pada semester tertentu. Pengisian dilakukan sesuai periode dan prosedur akademik kampus, dengan memperhatikan prasyarat serta arahan dosen pembimbing akademik."
+  },
+  {
+    "id": "khs",
+    "questions": [
+      "apa itu khs",
+      "di mana melihat nilai semester",
+      "cara melihat khs"
+    ],
+    "answer": "KHS (Kartu Hasil Studi) memuat hasil atau nilai mata kuliah yang telah ditempuh pada suatu semester. Mahasiswa dapat memeriksanya melalui sistem informasi akademik sesuai akun dan prosedur kampus."
+  },
+  {
+    "id": "sks",
+    "questions": [
+      "apa itu sks",
+      "pengertian sks",
+      "sks adalah apa"
+    ],
+    "answer": "SKS (Satuan Kredit Semester) adalah satuan yang digunakan untuk menyatakan beban belajar mahasiswa dalam kegiatan pendidikan tinggi. Jumlah SKS yang dapat diambil mengikuti aturan akademik dan hasil studi mahasiswa."
+  },
+  {
+    "id": "dosen_pa",
+    "questions": [
+      "apa itu dosen pa",
+      "siapa dosen pembimbing akademik",
+      "fungsi dosen pa"
+    ],
+    "answer": "Dosen Pembimbing Akademik (PA) membantu mahasiswa merencanakan studi dan memberikan arahan terkait perkembangan akademik. Hubungi dosen PA yang ditetapkan untuk konsultasi sesuai kebutuhan."
+  },
+  {
+    "id": "cuti_akademik",
+    "questions": [
+      "bagaimana mengajukan cuti kuliah",
+      "apa itu cuti akademik",
+      "prosedur cuti mahasiswa"
+    ],
+    "answer": "Cuti akademik adalah izin resmi untuk tidak mengikuti kegiatan akademik selama periode tertentu. Persyaratan, batas waktu, dan prosedurnya mengikuti peraturan kampus; konfirmasikan ke bagian akademik sebelum mengajukan."
+  },
+  {
+    "id": "ukt",
+    "questions": [
+      "apa itu ukt",
+      "bagaimana mengetahui biaya ukt",
+      "uang kuliah tunggal"
+    ],
+    "answer": "UKT (Uang Kuliah Tunggal) adalah biaya pendidikan yang dibayarkan mahasiswa sesuai ketentuan perguruan tinggi. Besaran, jadwal pembayaran, dan prosedur pengajuan keringanan harus diperiksa pada pengumuman resmi UNP."
+  },
+  {
+    "id": "magang",
+    "questions": [
+      "apakah ada program magang",
+      "bagaimana prosedur magang mahasiswa",
+      "informasi magang"
+    ],
+    "answer": "Program magang memberi kesempatan mahasiswa memperoleh pengalaman kerja atau praktik di instansi/industri. Ketentuan konversi SKS, pendaftaran, dan dokumen yang diperlukan mengikuti kebijakan program studi dan kampus."
+  },
+  {
+    "id": "skripsi",
+    "questions": [
+      "bagaimana memulai skripsi",
+      "apa itu skripsi",
+      "syarat mengambil skripsi",
+      "prosedur tugas akhir"
+    ],
+    "answer": "Skripsi atau tugas akhir merupakan karya ilmiah sebagai salah satu persyaratan penyelesaian studi. Topik, prasyarat, pembimbing, seminar, dan jadwal pelaksanaan mengikuti pedoman tugas akhir program studi yang berlaku."
+  },
+  {
+    "id": "wisuda",
+    "questions": [
+      "bagaimana mendaftar wisuda",
+      "syarat wisuda",
+      "kapan wisuda dilaksanakan"
+    ],
+    "answer": "Pendaftaran wisuda dan persyaratan kelulusan mengikuti kalender serta pengumuman resmi kampus. Periksa informasi terbaru dari bagian akademik atau layanan wisuda UNP."
+  },
+  {
+    "id": "kontak_akademik",
+    "questions": [
+      "ke mana bertanya tentang layanan akademik",
+      "kontak bagian akademik",
+      "cara menghubungi admin prodi"
+    ],
+    "answer": "Untuk pertanyaan yang memerlukan data pribadi atau keputusan resmi, hubungi admin program studi atau bagian akademik melalui kontak resmi yang diumumkan kampus. Jangan mengirim kata sandi atau data sensitif melalui chatbot."
+  },
+  {
+    "id": "jam_layanan",
+    "questions": [
+      "jam berapa layanan akademik buka",
+      "jam operasional admin prodi",
+      "kapan kantor akademik buka"
+    ],
+    "answer": "Jam layanan dapat berubah mengikuti hari kerja dan kebijakan kampus. Silakan cek pengumuman atau kanal resmi bagian akademik/program studi untuk jam operasional terbaru."
   }
 ]
