@@ -13,6 +13,15 @@ class TestKnowledgeBase(unittest.TestCase):
     def test_pertanyaan_tidak_relevan_mengembalikan_none(self):
         self.assertIsNone(find_answer("resep membuat rendang"))
 
+    def test_topik_umum_di_luar_faq_diteruskan_ke_gemini(self):
+        self.assertIsNone(find_answer("apa itu python?"))
+        self.assertIsNone(find_answer("siapa presiden indonesia"))
+        self.assertIsNone(find_answer("bagaimana cara membuat website"))
+
+    def test_pertanyaan_akademik_lain_tetap_dikenali(self):
+        self.assertIsNotNone(find_answer("cuti kuliah gimana"))
+        self.assertIsNotNone(find_answer("cara isi KRS"))
+
     def test_input_kosong_mengembalikan_none(self):
         self.assertIsNone(find_answer("   "))
 

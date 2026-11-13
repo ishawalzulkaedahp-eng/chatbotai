@@ -1,7 +1,7 @@
 """Pencarian jawaban lokal menggunakan TF-IDF dan cosine similarity.
 
-Implementasi memakai standard library Python agar tidak menambah dependensi.
-Kontrak: find_answer(question) -> str | None.
+Pertanyaan di luar cakupan FAQ harus menghasilkan None agar diteruskan ke Gemini.
+Implementasi memakai standard library Python tanpa dependensi tambahan.
 """
 from __future__ import annotations
 
@@ -12,12 +12,22 @@ from collections import Counter
 from pathlib import Path
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "knowledge_base.json"
-SIMILARITY_THRESHOLD = 0.22
+SIMILARITY_THRESHOLD = 0.35
+
+# Kata tanya/penghubung yang terlalu umum dan dapat menyebabkan kecocokan palsu.
+STOPWORDS = {
+    "apa", "apakah", "itu", "ini", "yang", "dan", "atau", "di", "ke",
+    "dari", "untuk", "dengan", "bagaimana", "gimana", "cara", "siapa",
+    "kapan", "dimana", "di mana", "mengapa", "kenapa", "jelaskan",
+    "tolong", "saya", "aku", "ingin", "mau", "tentang", "adalah",
+    "kah", "ya", "dong", "nya", "sebuah", "suatu",
+}
 
 
 def _tokenize(text: str) -> list[str]:
-    """Normalisasi sederhana untuk teks Bahasa Indonesia."""
-    return re.findall(r"[a-z0-9]+", text.lower())
+    """Normalisasi teks dan buang kata umum agar pencocokan fokus pada topik."""
+    tokens = re.findall(r"[a-z0-9]+", text.lower())
+    return [token for token in tokens if token not in STOPWORDS and len(token) > 1]
 
 
 def _load_entries() -> list[dict]:
@@ -61,7 +71,7 @@ def _cosine_similarity(left: dict[str, float], right: dict[str, float]) -> float
 
 
 def find_answer(question: str) -> str | None:
-    """Cari jawaban paling mirip; None berarti diteruskan ke layanan AI."""
+    """Cari FAQ yang relevan; None berarti pertanyaan harus diteruskan ke Gemini."""
     if not isinstance(question, str) or not question.strip():
         return None
 
@@ -79,6 +89,12 @@ def find_answer(question: str) -> str | None:
         return None
 
     idf = _fit_idf(documents)
+    vocabulary = set(idf)
+    # Syarat penting: minimal satu kata topik dari pertanyaan harus ada di FAQ.
+    # Tanpa ini, kata umum seperti "apa" atau "cara" bisa memicu jawaban yang salah.
+    if not (set(query_tokens) & vocabulary):
+        return None
+
     query_vector = _vectorize(query_tokens, idf)
     best_score = 0.0
     best_entry = None
