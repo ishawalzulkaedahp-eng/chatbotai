@@ -1,46 +1,43 @@
-
+import json
 import os
-from dotenv import load_dotenv
-from openai import OpenAI
+import urllib.error
+import urllib.request
 
-load_dotenv()
+from dotenv import load_dotenv
+
+load_dotenv()  # baca isi file .env
+
+# Jalur asli Gemini. Key format baru (diawali "AQ.") belum didukung
+# di jalur OpenAI-compatible, jadi kita pakai jalur ini.
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
 
 def ask_llm(question: str) -> str:
     api_key = os.getenv("API_AI_KEY")
-    base_url = os.getenv("API_AI_BASE_URL")
     model = os.getenv("API_AI_MODEL")
-
-    if not (api_key and base_url and model):
+    if not (api_key and model):
         raise ValueError("Konfigurasi LLM di .env belum lengkap.")
 
-    client = OpenAI(
-        api_key=api_key,
-        base_url=base_url,
-        timeout=30
+    body = {
+        "systemInstruction": {"parts": [{"text": "Jawab singkat dan jelas dalam bahasa Indonesia."}]},
+        "contents": [{"role": "user", "parts": [{"text": question}]}],
+    }
+    request = urllib.request.Request(
+        GEMINI_URL.format(model=model),
+        data=json.dumps(body).encode("utf-8"),
+        headers={"Content-Type": "application/json", "x-goog-api-key": api_key},
+        method="POST",
     )
 
     try:
-        response = client.chat.completions.create(
-            model=model,
-            messages=[
-                {
-                    "role": "system",
-                    "content": "Jawab singkat dan jelas dalam bahasa Indonesia."
-                },
-                {
-                    "role": "user",
-                    "content": question
-                }
-            ],
-        )
-
-        answer = response.choices[0].message.content
-
+        with urllib.request.urlopen(request, timeout=30) as response:
+            data = json.load(response)
+        parts = data["candidates"][0]["content"]["parts"]
+        answer = "".join(part.get("text", "") for part in parts)
     except Exception:
+        # Jangan tampilkan detail error asli: bisa berisi info rahasia
         raise RuntimeError("Layanan AI sedang tidak tersedia.") from None
 
-    if not isinstance(answer, str) or not answer.strip():
+    if not answer.strip():
         raise RuntimeError("AI tidak memberikan jawaban.")
-
     return answer.strip()
