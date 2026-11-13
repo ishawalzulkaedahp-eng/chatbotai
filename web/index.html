@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Chatbot AI</h1>
+      <button id="btn-reset" type="button">Reset</button>
+    </header>
+    <main id="chat" class="chat" aria-live="polite"></main>
+    <form id="form" class="composer" autocomplete="off">
+      <label for="input" class="sr-only">Pertanyaan</label>
+      <textarea id="input" rows="1" maxlength="2000" placeholder="Ketik pertanyaanmu..." required></textarea>
+      <button id="btn-send" type="submit">Kirim</button>
+    </form>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
