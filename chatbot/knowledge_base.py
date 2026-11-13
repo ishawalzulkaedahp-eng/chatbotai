@@ -12,7 +12,7 @@ from collections import Counter
 from pathlib import Path
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "knowledge_base.json"
-SIMILARITY_THRESHOLD = 0.35
+SIMILARITY_THRESHOLD = 0.5
 
 # Kata tanya/penghubung yang terlalu umum dan dapat menyebabkan kecocokan palsu.
 STOPWORDS = {
@@ -20,7 +20,7 @@ STOPWORDS = {
     "dari", "untuk", "dengan", "bagaimana", "gimana", "cara", "siapa",
     "kapan", "dimana", "di mana", "mengapa", "kenapa", "jelaskan",
     "tolong", "saya", "aku", "ingin", "mau", "tentang", "adalah",
-    "kah", "ya", "dong", "nya", "sebuah", "suatu",
+    "kah", "ya", "dong", "nya", "sebuah", "suatu", "berapa"
 }
 
 
@@ -56,7 +56,8 @@ def _fit_idf(documents: list[list[str]]) -> dict[str, float]:
 
 def _vectorize(tokens: list[str], idf: dict[str, float]) -> dict[str, float]:
     counts = Counter(tokens)
-    return {token: count * idf.get(token, 0.0) for token, count in counts.items()}
+    unknown = max(idf.values(), default=1.0)
+    return {token: count * idf.get(token, unknown) for token, count in counts.items()}
 
 
 def _cosine_similarity(left: dict[str, float], right: dict[str, float]) -> float:
